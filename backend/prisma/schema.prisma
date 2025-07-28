@@ -1,0 +1,84 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  password  String
+  role      Role     @default(STAFF)
+  name      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("users")
+}
+
+model PasswordReset {
+  id        Int      @id @default(autoincrement())
+  email     String
+  otp       String
+  expiresAt DateTime
+  isUsed    Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  @@map("password_resets")
+}
+
+model Service {
+  id          Int       @id @default(autoincrement())
+  name        String    @unique
+  price       Float
+  duration    Int       // duration in minutes
+  description String?
+  isActive    Boolean   @default(true)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  bookings    Booking[]
+
+  @@map("services")
+}
+
+model Customer {
+  id       Int       @id @default(autoincrement())
+  name     String
+  mobile   String    @unique
+  place    String
+  bookings Booking[]
+
+  @@map("customers")
+}
+
+model Booking {
+  id         Int           @id @default(autoincrement())
+  customerId Int
+  serviceId  Int
+  seatNumber Int
+  bookingTime DateTime
+  totalPrice Float
+  status     BookingStatus @default(CONFIRMED)
+  createdAt  DateTime      @default(now())
+  updatedAt  DateTime      @updatedAt
+
+  customer Customer @relation(fields: [customerId], references: [id])
+  service  Service  @relation(fields: [serviceId], references: [id])
+
+  @@map("bookings")
+}
+
+enum Role {
+  ADMIN
+  STAFF
+}
+
+enum BookingStatus {
+  CONFIRMED
+  POSTPONED
+  CANCELLED
+  COMPLETED
+}

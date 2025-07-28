@@ -43,14 +43,16 @@ async function main() {
             create: service,
         });
     }
-    console.log('\n✅ Seed completed.');
+    console.log('\n✅ Seed completed successfully.');
     console.log('🔐 Admin Login: admin@gopichandsalon.com / admin123');
     console.log('👨‍🔧 Staff Login: staff@gopichandsalon.com / staff123\n');
 }
 main()
-    .catch((e) => {
-    console.error('❌ Seed Error:', e);
+    .catch((error) => {
+    console.error('❌ Seed Error:', error);
     process.exit(1);
 })
-    .finally(() => prisma.$disconnect());
+    .finally(async () => {
+    await prisma.$disconnect();
+});
 //# sourceMappingURL=seed.js.map

@@ -662,7 +662,7 @@ const PublicWebsite: React.FC = () => {
                   <Mail className="h-4 w-4 md:h-6 md:w-6 text-amber-400 mr-3 mt-1 flex-shrink-0" />
                   <div>
                     <div className="font-semibold text-white">Email</div>
-                    <div className="text-gray-400">info@gopichandsalon.com</div>
+                    <div className="text-gray-400">info@glowgracesalon.com</div>
                   </div>
                 </div>
                 <div className="flex items-start">

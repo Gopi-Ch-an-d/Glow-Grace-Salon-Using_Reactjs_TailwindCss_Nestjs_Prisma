@@ -24,7 +24,6 @@ class ApiService {
   });
 
   constructor() {
-    // Add request interceptor to include auth token
     this.api.interceptors.request.use(
       (config) => {
         const token = localStorage.getItem('token');
@@ -36,7 +35,7 @@ class ApiService {
       (error) => Promise.reject(error)
     );
 
-    // Add response interceptor for error handling
+
     this.api.interceptors.response.use(
       (response) => response,
       (error) => {
@@ -45,7 +44,7 @@ class ApiService {
           localStorage.removeItem('user');
           window.location.href = '/login';
         }
-        
+
         const message = error.response?.data?.message || 'An error occurred';
         toast.error(message);
         return Promise.reject(error);
@@ -59,7 +58,27 @@ class ApiService {
     return response.data;
   }
 
-  async changePassword(currentPassword: string, newPassword: string): Promise<User> {
+  async forgotPassword(email: string): Promise<{ message: string; email: string }> {
+    const response = await this.api.post('/auth/forgot-password', { email });
+    return response.data;
+  }
+
+  async verifyOtp(email: string, otp: string): Promise<{ message: string; email: string; resetToken: number }> {
+    const response = await this.api.post('/auth/verify-otp', { email, otp });
+    return response.data;
+  }
+
+  async resetPassword(email: string, otp: string, newPassword: string): Promise<{ message: string }> {
+    const response = await this.api.post('/auth/reset-password', { email, otp, newPassword });
+    return response.data;
+  }
+
+
+
+  async changeEmail(email: string): Promise<User> {
+    const response: AxiosResponse<User> = await this.api.patch('/auth/change-email', { email });
+    return response.data;
+  } async changePassword(currentPassword: string, newPassword: string): Promise<User> {
     const response: AxiosResponse<User> = await this.api.patch('/auth/change-password', {
       currentPassword,
       newPassword,
@@ -67,10 +86,6 @@ class ApiService {
     return response.data;
   }
 
-  async changeEmail(email: string): Promise<User> {
-    const response: AxiosResponse<User> = await this.api.patch('/auth/change-email', { email });
-    return response.data;
-  }
 
   // Service APIs
   async getServices(): Promise<Service[]> {

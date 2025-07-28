@@ -10,12 +10,12 @@ exports.AppModule = void 0;
 const common_1 = require("@nestjs/common");
 const config_1 = require("@nestjs/config");
 const user_module_1 = require("./user/user.module");
-const service_module_1 = require("./service/service.module");
 const customer_module_1 = require("./customer/customer.module");
-const booking_module_1 = require("./booking/booking.module");
 const dashboard_module_1 = require("./dashboard/dashboard.module");
 const prisma_module_1 = require("./prisma/prisma.module");
 const auth_module_1 = require("./auth/auth.module");
+const service_module_1 = require("./service/service.module");
+const booking_module_1 = require("./booking/booking.module");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;

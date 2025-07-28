@@ -27,11 +27,11 @@ export declare class CustomerService {
             createdAt: Date;
             updatedAt: Date;
             bookingTime: Date;
+            status: import(".prisma/client").$Enums.BookingStatus;
+            totalPrice: number;
+            customerId: number;
             serviceId: number;
             seatNumber: number;
-            status: import(".prisma/client").$Enums.BookingStatus;
-            customerId: number;
-            totalPrice: number;
         })[];
     } & {
         id: number;
@@ -56,11 +56,11 @@ export declare class CustomerService {
             createdAt: Date;
             updatedAt: Date;
             bookingTime: Date;
+            status: import(".prisma/client").$Enums.BookingStatus;
+            totalPrice: number;
+            customerId: number;
             serviceId: number;
             seatNumber: number;
-            status: import(".prisma/client").$Enums.BookingStatus;
-            customerId: number;
-            totalPrice: number;
         })[];
     } & {
         id: number;
@@ -85,11 +85,11 @@ export declare class CustomerService {
             createdAt: Date;
             updatedAt: Date;
             bookingTime: Date;
+            status: import(".prisma/client").$Enums.BookingStatus;
+            totalPrice: number;
+            customerId: number;
             serviceId: number;
             seatNumber: number;
-            status: import(".prisma/client").$Enums.BookingStatus;
-            customerId: number;
-            totalPrice: number;
         })[];
     } & {
         id: number;
@@ -120,11 +120,11 @@ export declare class CustomerService {
             createdAt: Date;
             updatedAt: Date;
             bookingTime: Date;
+            status: import(".prisma/client").$Enums.BookingStatus;
+            totalPrice: number;
+            customerId: number;
             serviceId: number;
             seatNumber: number;
-            status: import(".prisma/client").$Enums.BookingStatus;
-            customerId: number;
-            totalPrice: number;
         })[];
     } & {
         id: number;

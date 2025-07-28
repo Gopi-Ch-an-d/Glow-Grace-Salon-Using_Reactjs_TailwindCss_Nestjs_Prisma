@@ -17,14 +17,16 @@ const config_1 = require("@nestjs/config");
 let JwtStrategy = class JwtStrategy extends (0, passport_1.PassportStrategy)(passport_jwt_1.Strategy) {
     configService;
     constructor(configService) {
-        const secret = configService.get('JWT_SECRET');
-        if (!secret) {
-            throw new Error('JWT_SECRET not defined in environment');
-        }
         super({
             jwtFromRequest: passport_jwt_1.ExtractJwt.fromAuthHeaderAsBearerToken(),
             ignoreExpiration: false,
-            secretOrKey: secret,
+            secretOrKeyProvider: (_req, _rawJwtToken, done) => {
+                const secret = configService.get('JWT_SECRET');
+                if (!secret) {
+                    return done(new Error('JWT_SECRET not defined in environment'));
+                }
+                done(null, secret);
+            },
         });
         this.configService = configService;
     }

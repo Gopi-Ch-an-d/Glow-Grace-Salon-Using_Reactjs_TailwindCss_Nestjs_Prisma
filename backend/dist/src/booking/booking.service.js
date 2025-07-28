@@ -52,18 +52,12 @@ let BookingService = class BookingService {
                 totalPrice: service.price,
                 status: client_1.BookingStatus.CONFIRMED,
             },
-            include: {
-                customer: true,
-                service: true,
-            },
+            include: { customer: true, service: true },
         });
     }
     async findAll() {
         return this.prisma.booking.findMany({
-            include: {
-                customer: true,
-                service: true,
-            },
+            include: { customer: true, service: true },
             orderBy: { bookingTime: 'asc' },
         });
     }
@@ -71,7 +65,7 @@ let BookingService = class BookingService {
         const today = new Date();
         today.setHours(0, 0, 0, 0);
         const tomorrow = new Date(today);
-        tomorrow.setDate(tomorrow.getDate() + 1);
+        tomorrow.setDate(today.getDate() + 1);
         return this.prisma.booking.findMany({
             where: {
                 bookingTime: {
@@ -79,20 +73,14 @@ let BookingService = class BookingService {
                     lt: tomorrow,
                 },
             },
-            include: {
-                customer: true,
-                service: true,
-            },
+            include: { customer: true, service: true },
             orderBy: { bookingTime: 'asc' },
         });
     }
     async findOne(id) {
         const booking = await this.prisma.booking.findUnique({
             where: { id },
-            include: {
-                customer: true,
-                service: true,
-            },
+            include: { customer: true, service: true },
         });
         if (!booking) {
             throw new common_1.NotFoundException(`Booking with ID ${id} not found`);
@@ -124,10 +112,7 @@ let BookingService = class BookingService {
         return this.prisma.booking.update({
             where: { id },
             data,
-            include: {
-                customer: true,
-                service: true,
-            },
+            include: { customer: true, service: true },
         });
     }
     async postpone(id, newBookingTime) {
@@ -137,20 +122,14 @@ let BookingService = class BookingService {
         });
     }
     async cancel(id) {
-        return this.update(id, {
-            status: client_1.BookingStatus.CANCELLED,
-        });
+        return this.update(id, { status: client_1.BookingStatus.CANCELLED });
     }
     async complete(id) {
-        return this.update(id, {
-            status: client_1.BookingStatus.COMPLETED,
-        });
+        return this.update(id, { status: client_1.BookingStatus.COMPLETED });
     }
     async remove(id) {
         await this.findOne(id);
-        return this.prisma.booking.delete({
-            where: { id },
-        });
+        return this.prisma.booking.delete({ where: { id } });
     }
     async getAvailableSeats(dateTime) {
         const bookingTime = new Date(dateTime);
@@ -162,8 +141,8 @@ let BookingService = class BookingService {
             select: { seatNumber: true },
         });
         const totalSeats = Array.from({ length: 10 }, (_, i) => i + 1);
-        const bookedSeatNumbers = bookedSeats.map((booking) => booking.seatNumber);
-        const availableSeats = totalSeats.filter((seat) => !bookedSeatNumbers.includes(seat));
+        const bookedSeatNumbers = bookedSeats.map(b => b.seatNumber);
+        const availableSeats = totalSeats.filter(seat => !bookedSeatNumbers.includes(seat));
         return { availableSeats, bookedSeats: bookedSeatNumbers };
     }
 };

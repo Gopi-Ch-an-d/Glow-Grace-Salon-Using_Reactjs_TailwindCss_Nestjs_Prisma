@@ -26,11 +26,11 @@ export declare class BookingController {
         createdAt: Date;
         updatedAt: Date;
         bookingTime: Date;
+        status: import(".prisma/client").$Enums.BookingStatus;
+        totalPrice: number;
+        customerId: number;
         serviceId: number;
         seatNumber: number;
-        status: import(".prisma/client").$Enums.BookingStatus;
-        customerId: number;
-        totalPrice: number;
     }>;
     findAll(): Promise<({
         service: {
@@ -54,11 +54,11 @@ export declare class BookingController {
         createdAt: Date;
         updatedAt: Date;
         bookingTime: Date;
+        status: import(".prisma/client").$Enums.BookingStatus;
+        totalPrice: number;
+        customerId: number;
         serviceId: number;
         seatNumber: number;
-        status: import(".prisma/client").$Enums.BookingStatus;
-        customerId: number;
-        totalPrice: number;
     })[]>;
     findTodayBookings(): Promise<({
         service: {
@@ -82,11 +82,11 @@ export declare class BookingController {
         createdAt: Date;
         updatedAt: Date;
         bookingTime: Date;
+        status: import(".prisma/client").$Enums.BookingStatus;
+        totalPrice: number;
+        customerId: number;
         serviceId: number;
         seatNumber: number;
-        status: import(".prisma/client").$Enums.BookingStatus;
-        customerId: number;
-        totalPrice: number;
     })[]>;
     getAvailableSeats(dateTime: string): Promise<{
         availableSeats: number[];
@@ -114,11 +114,11 @@ export declare class BookingController {
         createdAt: Date;
         updatedAt: Date;
         bookingTime: Date;
+        status: import(".prisma/client").$Enums.BookingStatus;
+        totalPrice: number;
+        customerId: number;
         serviceId: number;
         seatNumber: number;
-        status: import(".prisma/client").$Enums.BookingStatus;
-        customerId: number;
-        totalPrice: number;
     }>;
     update(id: string, updateBookingDto: UpdateBookingDto): Promise<{
         service: {
@@ -142,11 +142,11 @@ export declare class BookingController {
         createdAt: Date;
         updatedAt: Date;
         bookingTime: Date;
+        status: import(".prisma/client").$Enums.BookingStatus;
+        totalPrice: number;
+        customerId: number;
         serviceId: number;
         seatNumber: number;
-        status: import(".prisma/client").$Enums.BookingStatus;
-        customerId: number;
-        totalPrice: number;
     }>;
     postpone(id: string, bookingTime: string): Promise<{
         service: {
@@ -170,11 +170,11 @@ export declare class BookingController {
         createdAt: Date;
         updatedAt: Date;
         bookingTime: Date;
+        status: import(".prisma/client").$Enums.BookingStatus;
+        totalPrice: number;
+        customerId: number;
         serviceId: number;
         seatNumber: number;
-        status: import(".prisma/client").$Enums.BookingStatus;
-        customerId: number;
-        totalPrice: number;
     }>;
     cancel(id: string): Promise<{
         service: {
@@ -198,11 +198,11 @@ export declare class BookingController {
         createdAt: Date;
         updatedAt: Date;
         bookingTime: Date;
+        status: import(".prisma/client").$Enums.BookingStatus;
+        totalPrice: number;
+        customerId: number;
         serviceId: number;
         seatNumber: number;
-        status: import(".prisma/client").$Enums.BookingStatus;
-        customerId: number;
-        totalPrice: number;
     }>;
     complete(id: string): Promise<{
         service: {
@@ -226,21 +226,21 @@ export declare class BookingController {
         createdAt: Date;
         updatedAt: Date;
         bookingTime: Date;
+        status: import(".prisma/client").$Enums.BookingStatus;
+        totalPrice: number;
+        customerId: number;
         serviceId: number;
         seatNumber: number;
-        status: import(".prisma/client").$Enums.BookingStatus;
-        customerId: number;
-        totalPrice: number;
     }>;
     remove(id: string): Promise<{
         id: number;
         createdAt: Date;
         updatedAt: Date;
         bookingTime: Date;
+        status: import(".prisma/client").$Enums.BookingStatus;
+        totalPrice: number;
+        customerId: number;
         serviceId: number;
         seatNumber: number;
-        status: import(".prisma/client").$Enums.BookingStatus;
-        customerId: number;
-        totalPrice: number;
     }>;
 }

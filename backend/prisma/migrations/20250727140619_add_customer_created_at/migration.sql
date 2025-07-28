@@ -1,0 +1,5 @@
+-- AlterEnum
+ALTER TYPE "BookingStatus" ADD VALUE 'PENDING';
+
+-- AlterTable
+ALTER TABLE "customers" ADD COLUMN     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP;

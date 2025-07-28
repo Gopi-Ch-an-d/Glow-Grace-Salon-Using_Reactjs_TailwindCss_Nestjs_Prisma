@@ -4,7 +4,7 @@ declare const JwtStrategy_base: new (...args: [opt: import("passport-jwt").Strat
     validate(...args: any[]): unknown;
 };
 export declare class JwtStrategy extends JwtStrategy_base {
-    private configService;
+    private readonly configService;
     constructor(configService: ConfigService);
     validate(payload: any): Promise<{
         id: any;
