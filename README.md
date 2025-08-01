@@ -24,7 +24,4 @@ A full-stack **Salon Booking System** for managing offline appointments, built w
 - 📋 **Real-Time Booking Dashboard**
 - 📱 **Responsive UI for Desktop & Mobile**
 
----
-
-## 📂 Project Structure
 
