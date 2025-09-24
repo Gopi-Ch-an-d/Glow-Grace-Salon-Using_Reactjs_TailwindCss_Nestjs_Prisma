@@ -4,6 +4,10 @@ A full-stack **Salon Booking System** for managing offline appointments, built w
 
 ---
 
+## 🔗 Live Demo
+- **Salon Booking System Live:** [https://glow-grace-saloon.netlify.app/](https://glow-grace-saloon.netlify.app/)
+---
+
 ## 🔧 Tech Stack
 
 - ⚛️ **Frontend**: React.js, Tailwind CSS
