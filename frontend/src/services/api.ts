@@ -35,7 +35,6 @@ class ApiService {
       (error) => Promise.reject(error)
     );
 
-
     this.api.interceptors.response.use(
       (response) => response,
       (error) => {
@@ -73,12 +72,12 @@ class ApiService {
     return response.data;
   }
 
-
-
   async changeEmail(email: string): Promise<User> {
     const response: AxiosResponse<User> = await this.api.patch('/auth/change-email', { email });
     return response.data;
-  } async changePassword(currentPassword: string, newPassword: string): Promise<User> {
+  }
+
+  async changePassword(currentPassword: string, newPassword: string): Promise<User> {
     const response: AxiosResponse<User> = await this.api.patch('/auth/change-password', {
       currentPassword,
       newPassword,
@@ -86,6 +85,7 @@ class ApiService {
     return response.data;
   }
 
+  
 
   // Service APIs
   async getServices(): Promise<Service[]> {
@@ -182,14 +182,36 @@ class ApiService {
     }
   }
 
-  // Dashboard APIs
+  // Dashboard APIs - UPDATED WITH NEW ENDPOINTS
   async getTodayStats(): Promise<DashboardStats> {
     const response: AxiosResponse<DashboardStats> = await this.api.get('/dashboard/today-stats');
     return response.data;
   }
 
-  async getMonthlyStats(): Promise<{ monthlyRevenue: number; monthlyCustomers: number; monthlyBookings: number }> {
+  async getMonthlyStats(): Promise<{ 
+    monthlyRevenue: number; 
+    monthlyCustomers: number; 
+    monthlyBookings: number 
+  }> {
     const response = await this.api.get('/dashboard/monthly-stats');
+    return response.data;
+  }
+
+  async getYearlyStats(): Promise<{ 
+    yearlyRevenue: number; 
+    yearlyCustomers: number; 
+    yearlyBookings: number 
+  }> {
+    const response = await this.api.get('/dashboard/yearly-stats');
+    return response.data;
+  }
+
+  async getIncomeAnalytics(): Promise<{ 
+    dailyIncome: number; 
+    monthlyIncome: number; 
+    yearlyIncome: number 
+  }> {
+    const response = await this.api.get('/dashboard/income-analytics');
     return response.data;
   }
 

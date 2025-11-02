@@ -21,14 +21,23 @@ let DashboardController = class DashboardController {
     constructor(dashboardService) {
         this.dashboardService = dashboardService;
     }
-    getTodayStats() {
+    async getTodayStats() {
         return this.dashboardService.getTodayStats();
     }
-    getMonthlyStats() {
+    async getMonthlyStats() {
         return this.dashboardService.getMonthlyStats();
     }
-    getRecentBookings(limit) {
+    async getYearlyStats() {
+        return this.dashboardService.getYearlyStats();
+    }
+    async getIncomeAnalytics() {
+        return this.dashboardService.getIncomeAnalytics();
+    }
+    async getRecentBookings(limit) {
         return this.dashboardService.getRecentBookings(limit ? +limit : 10);
+    }
+    async debugBookings() {
+        return this.dashboardService.debugBookings();
     }
 };
 exports.DashboardController = DashboardController;
@@ -36,21 +45,39 @@ __decorate([
     (0, common_1.Get)('today-stats'),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
-    __metadata("design:returntype", void 0)
+    __metadata("design:returntype", Promise)
 ], DashboardController.prototype, "getTodayStats", null);
 __decorate([
     (0, common_1.Get)('monthly-stats'),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
-    __metadata("design:returntype", void 0)
+    __metadata("design:returntype", Promise)
 ], DashboardController.prototype, "getMonthlyStats", null);
+__decorate([
+    (0, common_1.Get)('yearly-stats'),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", Promise)
+], DashboardController.prototype, "getYearlyStats", null);
+__decorate([
+    (0, common_1.Get)('income-analytics'),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", Promise)
+], DashboardController.prototype, "getIncomeAnalytics", null);
 __decorate([
     (0, common_1.Get)('recent-bookings'),
     __param(0, (0, common_1.Query)('limit')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
-    __metadata("design:returntype", void 0)
+    __metadata("design:returntype", Promise)
 ], DashboardController.prototype, "getRecentBookings", null);
+__decorate([
+    (0, common_1.Get)('debug'),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", Promise)
+], DashboardController.prototype, "debugBookings", null);
 exports.DashboardController = DashboardController = __decorate([
     (0, common_1.Controller)('dashboard'),
     (0, common_1.UseGuards)(jwt_auth_guard_1.JwtAuthGuard),

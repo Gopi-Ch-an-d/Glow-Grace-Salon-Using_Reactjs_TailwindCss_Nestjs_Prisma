@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { Eye, EyeOff, Scissors, Loader2, ArrowLeft, Mail, Lock, Shield } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
-import { LoginCredentials } from '../types';
+import { LoginCredentials } from '../types/';
 import { apiService } from '../services/api';
 import toast from 'react-hot-toast';
 

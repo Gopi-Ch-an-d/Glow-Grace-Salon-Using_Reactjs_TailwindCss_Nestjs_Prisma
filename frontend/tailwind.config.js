@@ -18,7 +18,7 @@ module.exports = {
           800: '#1e40af',
           900: '#1e3a8a',
         },
-        silver: '#C0C0C0',  // ✅ Corrected
+        silver: '#C0C0C0',
         salon: {
           50: '#fdf4ff',
           100: '#fae8ff',
@@ -30,8 +30,34 @@ module.exports = {
           700: '#a21caf',
           800: '#86198f',
           900: '#701a75',
-        }
-      }
+        },
+      },
+      keyframes: {
+        'glow-text': {
+          '0%, 100%': {
+            backgroundImage: 'linear-gradient(to right, #fbbf24, #f97316)', // amber → orange
+          },
+          '50%': {
+            backgroundImage: 'linear-gradient(to right, #ffffff, #ffffff)', // white
+          },
+        },
+        'glow-underline': {
+          '0%, 100%': {
+            backgroundImage: 'linear-gradient(to right, #fbbf24, #f97316)', // amber → orange
+            transform: 'scaleX(1)',
+            opacity: '1',
+          },
+          '50%': {
+            backgroundImage: 'linear-gradient(to right, #ffffff, #ffffff)', // white
+            transform: 'scaleX(0.6)',
+            opacity: '0.6',
+          },
+        },
+      },
+      animation: {
+        'glow-text': 'glow-text 4s ease-in-out infinite',
+        'glow-underline': 'glow-underline 4s ease-in-out infinite',
+      },
     },
   },
   plugins: [],

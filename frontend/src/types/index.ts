@@ -79,3 +79,8 @@ export interface AvailableSeats {
   availableSeats: number[];
   bookedSeats: number[];
 }
+
+export interface OTPResponse {
+  success: boolean;
+  message: string;
+}

@@ -14,6 +14,16 @@ export declare class DashboardController {
         monthlyCustomers: number;
         monthlyBookings: number;
     }>;
+    getYearlyStats(): Promise<{
+        yearlyRevenue: number;
+        yearlyCustomers: number;
+        yearlyBookings: number;
+    }>;
+    getIncomeAnalytics(): Promise<{
+        dailyIncome: number;
+        monthlyIncome: number;
+        yearlyIncome: number;
+    }>;
     getRecentBookings(limit?: string): Promise<({
         service: {
             id: number;
@@ -42,4 +52,19 @@ export declare class DashboardController {
         serviceId: number;
         seatNumber: number;
     })[]>;
+    debugBookings(): Promise<{
+        serverTime: string;
+        istTime: string;
+        todayRange: {
+            start: string;
+            end: string;
+        };
+        recentCompletedBookings: {
+            id: number;
+            bookingTime: Date;
+            status: import(".prisma/client").$Enums.BookingStatus;
+            totalPrice: number;
+        }[];
+        totalCompletedBookings: number;
+    }>;
 }

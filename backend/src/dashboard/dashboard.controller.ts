@@ -8,17 +8,36 @@ export class DashboardController {
   constructor(private readonly dashboardService: DashboardService) {}
 
   @Get('today-stats')
-  getTodayStats() {
+  async getTodayStats() {
     return this.dashboardService.getTodayStats();
   }
 
   @Get('monthly-stats')
-  getMonthlyStats() {
+  async getMonthlyStats() {
     return this.dashboardService.getMonthlyStats();
   }
 
+  @Get('yearly-stats')
+  async getYearlyStats() {
+    return this.dashboardService.getYearlyStats();
+  }
+
+  @Get('income-analytics')
+  async getIncomeAnalytics() {
+    return this.dashboardService.getIncomeAnalytics();
+  }
+
   @Get('recent-bookings')
-  getRecentBookings(@Query('limit') limit?: string) {
+  async getRecentBookings(@Query('limit') limit?: string) {
     return this.dashboardService.getRecentBookings(limit ? +limit : 10);
+  }
+
+  /**
+   * Debug endpoint to check timezone and bookings
+   * Remove this in production or add admin-only guard
+   */
+  @Get('debug')
+  async debugBookings() {
+    return this.dashboardService.debugBookings();
   }
 }

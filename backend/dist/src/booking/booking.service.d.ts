@@ -5,239 +5,239 @@ export declare class BookingService {
     private readonly prisma;
     constructor(prisma: PrismaService);
     create(createBookingDto: CreateBookingDto): Promise<{
-        service: {
-            id: number;
-            name: string;
-            createdAt: Date;
-            updatedAt: Date;
-            price: number;
-            duration: number;
-            description: string | null;
-            isActive: boolean;
-        };
         customer: {
             id: number;
             name: string;
             mobile: string;
             place: string;
         };
+        service: {
+            id: number;
+            createdAt: Date;
+            updatedAt: Date;
+            name: string;
+            price: number;
+            duration: number;
+            description: string | null;
+            isActive: boolean;
+        };
     } & {
         id: number;
-        createdAt: Date;
-        updatedAt: Date;
-        bookingTime: Date;
-        status: import(".prisma/client").$Enums.BookingStatus;
-        totalPrice: number;
         customerId: number;
         serviceId: number;
         seatNumber: number;
+        bookingTime: Date;
+        totalPrice: number;
+        status: import(".prisma/client").$Enums.BookingStatus;
+        createdAt: Date;
+        updatedAt: Date;
     }>;
     findAll(): Promise<({
-        service: {
-            id: number;
-            name: string;
-            createdAt: Date;
-            updatedAt: Date;
-            price: number;
-            duration: number;
-            description: string | null;
-            isActive: boolean;
-        };
         customer: {
             id: number;
             name: string;
             mobile: string;
             place: string;
         };
+        service: {
+            id: number;
+            createdAt: Date;
+            updatedAt: Date;
+            name: string;
+            price: number;
+            duration: number;
+            description: string | null;
+            isActive: boolean;
+        };
     } & {
         id: number;
-        createdAt: Date;
-        updatedAt: Date;
-        bookingTime: Date;
-        status: import(".prisma/client").$Enums.BookingStatus;
-        totalPrice: number;
         customerId: number;
         serviceId: number;
         seatNumber: number;
+        bookingTime: Date;
+        totalPrice: number;
+        status: import(".prisma/client").$Enums.BookingStatus;
+        createdAt: Date;
+        updatedAt: Date;
     })[]>;
     findTodayBookings(): Promise<({
-        service: {
-            id: number;
-            name: string;
-            createdAt: Date;
-            updatedAt: Date;
-            price: number;
-            duration: number;
-            description: string | null;
-            isActive: boolean;
-        };
         customer: {
             id: number;
             name: string;
             mobile: string;
             place: string;
         };
+        service: {
+            id: number;
+            createdAt: Date;
+            updatedAt: Date;
+            name: string;
+            price: number;
+            duration: number;
+            description: string | null;
+            isActive: boolean;
+        };
     } & {
         id: number;
-        createdAt: Date;
-        updatedAt: Date;
-        bookingTime: Date;
-        status: import(".prisma/client").$Enums.BookingStatus;
-        totalPrice: number;
         customerId: number;
         serviceId: number;
         seatNumber: number;
+        bookingTime: Date;
+        totalPrice: number;
+        status: import(".prisma/client").$Enums.BookingStatus;
+        createdAt: Date;
+        updatedAt: Date;
     })[]>;
     findOne(id: number): Promise<{
-        service: {
-            id: number;
-            name: string;
-            createdAt: Date;
-            updatedAt: Date;
-            price: number;
-            duration: number;
-            description: string | null;
-            isActive: boolean;
-        };
         customer: {
             id: number;
             name: string;
             mobile: string;
             place: string;
         };
+        service: {
+            id: number;
+            createdAt: Date;
+            updatedAt: Date;
+            name: string;
+            price: number;
+            duration: number;
+            description: string | null;
+            isActive: boolean;
+        };
     } & {
         id: number;
-        createdAt: Date;
-        updatedAt: Date;
-        bookingTime: Date;
-        status: import(".prisma/client").$Enums.BookingStatus;
-        totalPrice: number;
         customerId: number;
         serviceId: number;
         seatNumber: number;
+        bookingTime: Date;
+        totalPrice: number;
+        status: import(".prisma/client").$Enums.BookingStatus;
+        createdAt: Date;
+        updatedAt: Date;
     }>;
     update(id: number, updateBookingDto: UpdateBookingDto): Promise<{
-        service: {
-            id: number;
-            name: string;
-            createdAt: Date;
-            updatedAt: Date;
-            price: number;
-            duration: number;
-            description: string | null;
-            isActive: boolean;
-        };
         customer: {
             id: number;
             name: string;
             mobile: string;
             place: string;
         };
+        service: {
+            id: number;
+            createdAt: Date;
+            updatedAt: Date;
+            name: string;
+            price: number;
+            duration: number;
+            description: string | null;
+            isActive: boolean;
+        };
     } & {
         id: number;
-        createdAt: Date;
-        updatedAt: Date;
-        bookingTime: Date;
-        status: import(".prisma/client").$Enums.BookingStatus;
-        totalPrice: number;
         customerId: number;
         serviceId: number;
         seatNumber: number;
+        bookingTime: Date;
+        totalPrice: number;
+        status: import(".prisma/client").$Enums.BookingStatus;
+        createdAt: Date;
+        updatedAt: Date;
     }>;
     postpone(id: number, newBookingTime: string): Promise<{
-        service: {
-            id: number;
-            name: string;
-            createdAt: Date;
-            updatedAt: Date;
-            price: number;
-            duration: number;
-            description: string | null;
-            isActive: boolean;
-        };
         customer: {
             id: number;
             name: string;
             mobile: string;
             place: string;
         };
+        service: {
+            id: number;
+            createdAt: Date;
+            updatedAt: Date;
+            name: string;
+            price: number;
+            duration: number;
+            description: string | null;
+            isActive: boolean;
+        };
     } & {
         id: number;
-        createdAt: Date;
-        updatedAt: Date;
-        bookingTime: Date;
-        status: import(".prisma/client").$Enums.BookingStatus;
-        totalPrice: number;
         customerId: number;
         serviceId: number;
         seatNumber: number;
+        bookingTime: Date;
+        totalPrice: number;
+        status: import(".prisma/client").$Enums.BookingStatus;
+        createdAt: Date;
+        updatedAt: Date;
     }>;
     cancel(id: number): Promise<{
-        service: {
-            id: number;
-            name: string;
-            createdAt: Date;
-            updatedAt: Date;
-            price: number;
-            duration: number;
-            description: string | null;
-            isActive: boolean;
-        };
         customer: {
             id: number;
             name: string;
             mobile: string;
             place: string;
         };
+        service: {
+            id: number;
+            createdAt: Date;
+            updatedAt: Date;
+            name: string;
+            price: number;
+            duration: number;
+            description: string | null;
+            isActive: boolean;
+        };
     } & {
         id: number;
-        createdAt: Date;
-        updatedAt: Date;
-        bookingTime: Date;
-        status: import(".prisma/client").$Enums.BookingStatus;
-        totalPrice: number;
         customerId: number;
         serviceId: number;
         seatNumber: number;
+        bookingTime: Date;
+        totalPrice: number;
+        status: import(".prisma/client").$Enums.BookingStatus;
+        createdAt: Date;
+        updatedAt: Date;
     }>;
     complete(id: number): Promise<{
-        service: {
-            id: number;
-            name: string;
-            createdAt: Date;
-            updatedAt: Date;
-            price: number;
-            duration: number;
-            description: string | null;
-            isActive: boolean;
-        };
         customer: {
             id: number;
             name: string;
             mobile: string;
             place: string;
         };
+        service: {
+            id: number;
+            createdAt: Date;
+            updatedAt: Date;
+            name: string;
+            price: number;
+            duration: number;
+            description: string | null;
+            isActive: boolean;
+        };
     } & {
         id: number;
-        createdAt: Date;
-        updatedAt: Date;
-        bookingTime: Date;
-        status: import(".prisma/client").$Enums.BookingStatus;
-        totalPrice: number;
         customerId: number;
         serviceId: number;
         seatNumber: number;
+        bookingTime: Date;
+        totalPrice: number;
+        status: import(".prisma/client").$Enums.BookingStatus;
+        createdAt: Date;
+        updatedAt: Date;
     }>;
     remove(id: number): Promise<{
         id: number;
-        createdAt: Date;
-        updatedAt: Date;
-        bookingTime: Date;
-        status: import(".prisma/client").$Enums.BookingStatus;
-        totalPrice: number;
         customerId: number;
         serviceId: number;
         seatNumber: number;
+        bookingTime: Date;
+        totalPrice: number;
+        status: import(".prisma/client").$Enums.BookingStatus;
+        createdAt: Date;
+        updatedAt: Date;
     }>;
     getAvailableSeats(dateTime: string): Promise<{
         availableSeats: number[];
